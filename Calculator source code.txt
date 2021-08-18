@@ -1,0 +1,357 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+
+public class Cal {
+
+	private JFrame frame;
+	private JTextField textField;
+
+
+	double a, b, c, d, g, h , i, j , k, l;
+	String ansadd, anssub, ansmul, ansdiv, ansper;
+	double resulta, results, resultm, resultd, resultp;
+	String op;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Cal window = new Cal();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+
+	
+	
+	/**
+	 * Create the application.
+	 */
+	public Cal() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 265, 406);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.RIGHT);
+		textField.setBounds(10, 11, 230, 37);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JButton btn_ce = new JButton("CE");
+		btn_ce.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText(null);
+			}
+		});
+		btn_ce.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_ce.setBounds(10, 59, 50, 50);
+		frame.getContentPane().add(btn_ce);
+		
+		JButton btn_back = new JButton("\uF0D5");
+		btn_back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+                String backspace = null;
+				
+		    	if(textField.getText().length() > 0) {
+				StringBuilder strB = new StringBuilder(textField.getText());
+				strB.deleteCharAt(textField.getText().length() - 1);
+				backspace = strB.toString();
+				textField.setText(backspace);
+			
+			}
+			}
+		});
+		btn_back.setFont(new Font("Wingdings", Font.PLAIN, 13));
+		btn_back.setBounds(70, 59, 50, 50);
+		frame.getContentPane().add(btn_back);
+		
+		JButton btn_per = new JButton("%");
+		btn_per.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+		k = Double.parseDouble(textField.getText());
+	    op = btn_per.getText();
+	    textField.setText(null);
+			}
+		});
+		btn_per.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_per.setBounds(130, 59, 50, 50);
+		frame.getContentPane().add(btn_per);
+		
+		JButton btn_add = new JButton("+");
+		btn_add.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				a = Double.parseDouble(textField.getText());
+			    op = btn_add.getText();
+			    textField.setText(null);
+			}
+		});
+		btn_add.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_add.setBounds(190, 59, 50, 50);
+		frame.getContentPane().add(btn_add);
+		
+		JButton btn_7 = new JButton("7");
+		btn_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String seven  = textField.getText()+btn_7.getText();
+				textField.setText(seven);
+				
+			}
+		});
+		btn_7.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_7.setBounds(10, 120, 50, 50);
+		frame.getContentPane().add(btn_7);
+		
+		JButton btn_8 = new JButton("8");
+		btn_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String eight  = textField.getText()+btn_8.getText();
+				textField.setText(eight);
+			}
+		});
+		btn_8.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_8.setBounds(70, 120, 50, 50);
+		frame.getContentPane().add(btn_8);
+		
+		JButton btn_9 = new JButton("9");
+		btn_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				String nine  = textField.getText()+btn_9.getText();
+				textField.setText(nine);
+			}
+		});
+		btn_9.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_9.setBounds(130, 120, 50, 50);
+		frame.getContentPane().add(btn_9);
+		
+		JButton btn_sub = new JButton("-");
+		btn_sub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				c = Double.parseDouble(textField.getText());
+			    op = btn_sub.getText();
+			    textField.setText(null);
+			}
+		});
+		btn_sub.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btn_sub.setBounds(189, 120, 50, 50);
+		frame.getContentPane().add(btn_sub);
+		
+		JButton btn_4 = new JButton("4");
+		btn_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String four  = textField.getText()+btn_4.getText();
+				textField.setText(four);
+				
+			}
+		});
+		btn_4.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_4.setBounds(10, 181, 50, 50);
+		frame.getContentPane().add(btn_4);
+		
+		JButton btn_5 = new JButton("5");
+		btn_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String five  = textField.getText()+btn_5.getText();
+				textField.setText(five);
+				
+			}
+		});
+		btn_5.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_5.setBounds(70, 181, 50, 50);
+		frame.getContentPane().add(btn_5);
+		
+		JButton btn_6 = new JButton("6");
+		btn_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String six  = textField.getText()+btn_6.getText();
+				textField.setText(six);
+			}
+		});
+		btn_6.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_6.setBounds(130, 181, 50, 50);
+		frame.getContentPane().add(btn_6);
+		
+		JButton btn_mul = new JButton("*");
+		btn_mul.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				g = Double.parseDouble(textField.getText());
+			    op = btn_mul.getText();
+			    textField.setText(null);
+				
+			}
+		});
+		btn_mul.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_mul.setBounds(190, 181, 50, 50);
+		frame.getContentPane().add(btn_mul);
+		
+		JButton btn_1 = new JButton("1");
+		btn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				String one  = textField.getText()+btn_1.getText();
+				textField.setText(one);
+			
+			}
+		});
+		btn_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_1.setBounds(10, 242, 50, 50);
+		frame.getContentPane().add(btn_1);
+		
+		JButton btn_2 = new JButton("2");
+		btn_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String two  = textField.getText()+btn_2.getText();
+				textField.setText(two);
+				
+			}
+		});
+		btn_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_2.setBounds(70, 242, 50, 50);
+		frame.getContentPane().add(btn_2);
+		
+		JButton btn_3 = new JButton("3");
+		btn_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				String three  = textField.getText()+btn_3.getText();
+				textField.setText(three);
+			}
+		});
+		btn_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_3.setBounds(130, 242, 50, 50);
+		frame.getContentPane().add(btn_3);
+		
+		JButton btn_div = new JButton("/");
+		btn_div.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				i = Double.parseDouble(textField.getText());
+			    op = btn_div.getText();
+			    textField.setText(null);
+				
+			}
+		});
+		btn_div.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_div.setBounds(190, 242, 50, 50);
+		frame.getContentPane().add(btn_div);
+		
+		JButton btn_pm = new JButton("\u00B1");
+		btn_pm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double pm = Double.parseDouble(textField.getText());
+				pm = pm*-1;
+				textField.setText(String.valueOf(pm));
+			}
+		});
+		btn_pm.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_pm.setBounds(10, 303, 50, 50);
+		frame.getContentPane().add(btn_pm);
+		
+		JButton btn_0 = new JButton("0");
+		btn_0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String zero  = textField.getText()+btn_0.getText();
+				textField.setText(zero);
+			}
+		});
+		btn_0.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_0.setBounds(70, 303, 50, 50);
+		frame.getContentPane().add(btn_0);
+		
+		JButton btn_point = new JButton(".");
+		btn_point.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(!textField.getText().contains("."))
+		          {
+					textField.setText(textField.getText() + btn_point.getText());
+		          }
+			}
+                
+			
+				
+			
+		});
+		btn_point.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_point.setBounds(130, 303, 50, 50);
+		frame.getContentPane().add(btn_point);
+		
+		JButton btn_equal = new JButton("=");
+		btn_equal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				if(op=="+") {
+					b = Double.parseDouble(textField.getText());
+					
+					resulta = a+b;
+					ansadd=String.format("%2f", resulta);
+					textField.setText(ansadd);
+					
+				}else if(op=="-") {
+					d = Double.parseDouble(textField.getText());
+					
+					results = c-d;
+					anssub=String.format("%2f", results);
+					textField.setText(anssub);
+				}else if(op=="*") {
+					h = Double.parseDouble(textField.getText());
+					
+					resultm = g*h;
+					ansmul=String.format("%2f", resultm);
+					textField.setText(ansmul);
+				}else if(op=="/") {
+					j = Double.parseDouble(textField.getText());
+					
+					resultd = i/j;
+					ansdiv=String.format("%2f", resultd);
+					textField.setText(ansdiv);
+				
+				}else if(op=="%") {
+					l = Double.parseDouble(textField.getText());
+					
+					resultp = k%l;
+					ansper=String.format("%2f", resultp);
+					textField.setText(ansper);
+			}
+			}
+		});
+		btn_equal.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_equal.setBounds(190, 303, 50, 50);
+		frame.getContentPane().add(btn_equal);
+	}
+}
